@@ -40,23 +40,10 @@ void remove_from_list(void)
 	item->next = NULL;
 }
 
+
 static int __init hello_init(void)
 {
 	printk(KERN_INFO "hello from shai.\n");
-
-	// root = (struct Node *) kmalloc(sizeof(Node), GFP_KERNEL);
-	// root->info = 1;
-
-	// root->next = (struct Node *) kmalloc(sizeof(Node), GFP_KERNEL);
-	// root->next->info = 2;
-
-	// root->next->next = (struct Node *) kmalloc(sizeof(Node), GFP_KERNEL);
-	// root->next->next->info = 3;
-
-	// root->next->next->next = (struct Node *) kmalloc(sizeof(Node), GFP_KERNEL);
-	// root->next->next->next->info = 4;
-
-	// root->next->next->next->next = NULL;
 
 	// print list after initial state
 	print_list();
