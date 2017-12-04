@@ -11,14 +11,14 @@ MODULE_DESCRIPTION("Simple hello world module");
 
 typedef struct Node {
 	int info;
-	Node* next;
+	struct Node *next;
 }
 
-static Node* root = NULL;
+static Node *root = NULL;
 
 static void print_list()
 {
-	Node* item = root;
+	Node *item = root;
 
 	while (item != NULL) {
 		printk(KERN_INFO "printing item %d \n", item->info);
@@ -28,7 +28,7 @@ static void print_list()
 
 static void remove_from_list()
 {
-	Node* item = root;
+	Node *item = root;
 	
 	if (item->next == NULL)
 	{
