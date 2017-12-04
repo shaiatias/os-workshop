@@ -1,0 +1,1 @@
+cmd_/home/shai/my-first-module/hello.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/shai/my-first-module/hello.ko /home/shai/my-first-module/hello.o /home/shai/my-first-module/hello.mod.o ;  true
