@@ -1,6 +1,7 @@
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/init.h>
+#include <linux/slab.h>
 
 MODULE_LICENSE("MIT");
 MODULE_AUTHOR("SHAI ATIAS");
@@ -45,16 +46,16 @@ static int __init hello_init(void)
 {
 	printk(KERN_INFO "hello from shai.\n");
 
-	root = malloc(sizeof(Node));
+	root = kmalloc(sizeof(Node));
 	root->info = 1;
 
-	root->next = malloc(sizeof(Node));
+	root->next = kmalloc(sizeof(Node));
 	root->next->info = 2;
 	
-	root->next->next = malloc(sizeof(Node));
+	root->next->next = kmalloc(sizeof(Node));
 	root->next->next->info = 3;
 
-	root->next->next->next = malloc(sizeof(Node));
+	root->next->next->next = kmalloc(sizeof(Node));
 	root->next->next->next->info = 4;
 
 	root->next->next->next->next = NULL;
