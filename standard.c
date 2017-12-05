@@ -1,6 +1,6 @@
 //http://www.thegeekstuff.com/2013/07/write-linux-kernel-module/?utm_source=tuicool
 
-#include <stdout.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct Node {
@@ -8,7 +8,11 @@ typedef struct Node {
 	struct Node *next;
 } Node;
 
-static Node *root = NULL;
+static Node node4 = { 4, NULL };
+static Node node3 = { 3, &node4 };
+static Node node2 = { 2, &node3 };
+static Node node1 = { 1, &node2 };
+static Node *root = &node1;
 
 void print_list(void)
 {
@@ -37,10 +41,11 @@ void remove_from_list(void)
 }
 
 
-static int main(void)
+int main(void)
 {
 	printf("hello from shai.\n");
 
+	/*
 	root = (struct Node *) malloc(sizeof(struct Node));
 	root->info = 1;
 
@@ -54,14 +59,15 @@ static int main(void)
 	root->next->next->next->info = 4;
 
 	root->next->next->next->next = NULL;
-
+	*/
+	
 	// print list after initial state
 	print_list();
 
 	return 0;
 }
 
-static void __exit hello_cleanup(void)
+static void hello_cleanup(void)
 {
 	printf("cleanup work\n");
 

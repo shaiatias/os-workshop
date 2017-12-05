@@ -14,7 +14,11 @@ typedef struct Node {
 	struct Node *next;
 } Node;
 
-static Node *root = NULL;
+static Node node4 = { 4, NULL };
+static Node node3 = { 3, &node4 };
+static Node node2 = { 2, &node3 };
+static Node node1 = { 1, &node2 };
+static Node *root = &node1;
 
 void print_list(void)
 {
@@ -42,24 +46,23 @@ void remove_from_list(void)
 	item->next = NULL;
 }
 
-
 static int __init hello_init(void)
 {
 	printk(KERN_INFO "hello from shai.\n");
 
-	root = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
-	root->info = 1;
+	// root = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
+	// root->info = 1;
 
-	root->next = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
-	root->next->info = 2;
+	// root->next = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
+	// root->next->info = 2;
 
-	root->next->next = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
-	root->next->next->info = 3;
+	// root->next->next = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
+	// root->next->next->info = 3;
 
-	root->next->next->next = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
-	root->next->next->next->info = 4;
+	// root->next->next->next = (struct Node *) kmalloc(sizeof(struct Node), GFP_KERNEL);
+	// root->next->next->next->info = 4;
 
-	root->next->next->next->next = NULL;
+	// root->next->next->next->next = NULL;
 
 	// print list after initial state
 	print_list();
